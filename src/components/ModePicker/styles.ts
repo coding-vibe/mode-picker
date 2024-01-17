@@ -15,3 +15,8 @@ export const wrap = css`
 export const select = css`
   width: 300px;
 `;
+
+export const spinner = css`
+  display: flex;
+  justify-content: center;
+`;

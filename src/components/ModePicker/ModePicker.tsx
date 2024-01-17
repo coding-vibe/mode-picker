@@ -6,12 +6,14 @@ import InputLabel from '@mui/material/InputLabel';
 import MenuItem from '@mui/material/MenuItem';
 import Select from '@mui/material/Select';
 import SquaresTable from 'components/SquaresTable';
+import Spinner from 'components/Spinner';
 import Mode from 'types/mode';
 import * as classes from './styles';
 
 const REQUEST_URL = 'https://demo3005513.mockable.io/web/modes';
 
 export default function ModePicker() {
+  const [isLoading, setIsLoading] = useState<boolean>(false);
   const [modes, setModes] = useState<Mode[]>([]);
   const [selectedModeName, onSelectModeName] = useState<string>('');
   const [selectedMode, onSelectMode] = useState<Mode | null>(null);
@@ -19,17 +21,20 @@ export default function ModePicker() {
   useEffect(() => {
     const fetchModes = async () => {
       try {
+        setIsLoading(true);
         const response = await axios.get<Mode[]>(REQUEST_URL);
         setModes(response.data);
       } catch (e) {
         console.log(e);
+      } finally {
+        setIsLoading(false);
       }
     };
 
     fetchModes();
   }, []);
 
-  const handleClick = () => {
+  const handleSelectMode = () => {
     const mode = modes.find(({ name }) => name === selectedModeName);
 
     if (mode) {
@@ -37,7 +42,11 @@ export default function ModePicker() {
     }
   };
 
-  return (
+  return isLoading ? (
+    <div css={classes.spinner}>
+      <Spinner />
+    </div>
+  ) : (
     <div css={classes.mainWrap}>
       <div css={classes.wrap}>
         <FormControl>
@@ -60,7 +69,7 @@ export default function ModePicker() {
           </Select>
         </FormControl>
         <Button
-          onClick={handleClick}
+          onClick={handleSelectMode}
           size='large'
           variant='contained'>
           START
