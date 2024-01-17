@@ -53,6 +53,7 @@ module.exports = {
     '@typescript-eslint/no-unused-vars': 2,
     'consistent-return': 2,
     'no-shadow': 0,
+    'no-console': 0,
     '@typescript-eslint/no-shadow': 'error',
     '@typescript-eslint/no-floating-promises': 0,
     'newline-before-return': 2,
