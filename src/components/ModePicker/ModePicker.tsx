@@ -52,7 +52,6 @@ export default function ModePicker() {
         <FormControl>
           <InputLabel>Choose mode</InputLabel>
           <Select
-            autoWidth
             css={classes.select}
             label='mode-select'
             labelId='mode-select'

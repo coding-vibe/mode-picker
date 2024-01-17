@@ -9,11 +9,11 @@ export const wrap = css`
   justify-content: center;
   align-items: center;
   gap: 20px;
-  margin-bottom: 20px;
+  margin-bottom: 40px;
 `;
 
 export const select = css`
-  width: 300px;
+  width: 500px;
 `;
 
 export const spinner = css`
