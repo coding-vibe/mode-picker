@@ -1,5 +1,7 @@
+import ModePicker from 'components/ModePicker';
+
 function App() {
-  return null;
+  return <ModePicker />;
 }
 
 export default App;
