@@ -25,7 +25,7 @@ export default function ModePicker() {
         const response = await axios.get<Mode[]>(REQUEST_URL);
         setModes(response.data);
       } catch (e) {
-        console.log(e);
+        throw new Error('Error fetching modes');
       } finally {
         setIsLoading(false);
       }
