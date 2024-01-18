@@ -28,6 +28,7 @@ export default function SquaresTable({ mode }: Props) {
   const [hoveredCells, setHoveredCells] = useState<HoveredCell[]>([]);
 
   useEffect(() => {
+    setHoveredCells([]);
     updateMatrix(generateMatrix(mode.field));
   }, [mode.field]);
 
